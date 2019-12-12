@@ -1,7 +1,7 @@
 {
   "name": "@monorepo/test-ui-kit",
   "version": "0.3.0",
-  "main": "./src/index.js",
+  "main": "./dist/index.js",
   "private": true,
   "dependencies": {
     "@babel/core": "7.7.4",
@@ -64,6 +64,7 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {
+    "prepublish": "rm -rf dist && mkdir dist && NODE_ENV=production npx babel src/ --out-dir dist --copy-files",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
